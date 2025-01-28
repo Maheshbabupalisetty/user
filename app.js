@@ -1,13 +1,12 @@
 const apiUrl = 'https://jsonplaceholder.typicode.com/users';
 let currentEditUserId = null;
 
-// Fetch and display users
 function fetchUsers() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(users => {
             const userList = document.getElementById('user-list-ul');
-            userList.innerHTML = ''; // Clear the list before re-populating
+            userList.innerHTML = ''; 
 
             users.forEach(user => {
                 const li = document.createElement('li');
@@ -22,7 +21,7 @@ function fetchUsers() {
         .catch(error => showError('Failed to fetch users.'));
 }
 
-// Show the form to add a new user
+
 function showAddForm() {
     document.getElementById('form-title').innerText = 'Add User';
     document.getElementById('user-form').style.display = 'block';
@@ -30,7 +29,7 @@ function showAddForm() {
     currentEditUserId = null;
 }
 
-// Show the form to edit an existing user
+
 function showEditForm(userId) {
     fetch(`${apiUrl}/${userId}`)
         .then(response => response.json())
@@ -47,7 +46,7 @@ function showEditForm(userId) {
         .catch(error => showError('Failed to fetch user.'));
 }
 
-// Handle form submission for both adding and editing users
+
 function handleFormSubmit(event) {
     event.preventDefault();
     const userId = document.getElementById('user-id').value;
@@ -63,7 +62,6 @@ function handleFormSubmit(event) {
     };
 
     if (currentEditUserId) {
-        // Update user
         fetch(`${apiUrl}/${currentEditUserId}`, {
                 method: 'PUT',
                 headers: {
@@ -81,7 +79,6 @@ function handleFormSubmit(event) {
             })
             .catch(error => showError('Failed to update user.'));
     } else {
-        // Add user
         fetch(apiUrl, {
                 method: 'POST',
                 headers: {
@@ -98,7 +95,7 @@ function handleFormSubmit(event) {
     }
 }
 
-// Delete a user
+
 function deleteUser(userId) {
     fetch(`${apiUrl}/${userId}`, {
             method: 'DELETE'
@@ -107,17 +104,15 @@ function deleteUser(userId) {
         .catch(error => showError('Failed to delete user.'));
 }
 
-// Cancel form and hide it
+
 function cancelForm() {
     document.getElementById('user-form').style.display = 'none';
 }
 
-// Show error message
 function showError(message) {
     const errorMessage = document.getElementById('error-message');
     errorMessage.innerText = message;
     errorMessage.style.display = 'block';
 }
 
-// Initial data fetch
 fetchUsers();
