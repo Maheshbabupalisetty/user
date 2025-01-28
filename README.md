@@ -77,3 +77,18 @@ Delete User: The "Delete" button sends a DELETE request to the API to remove the
 
 Error Handling: If any API request fails, an error message is shown.
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+ challenges faced during the development process:-
+
+ In the creation of user management the most difficult part was writing code of JavaScript.
+
+ First, I try on reactjs program and get the output but it was showing errors and get complicate on process. Because I have intermediate knowledge on reactJs
+
+ In this process I have to built the HTML,CSS and JavaScript codes to give an application user management
+
+ So, I have facing issues of connection of database and deletion process of user records.
+
+ The User details was edit it not showing in output and it can't delete
+
+ I will try my best to improve my skills this project acknowledge my skills so it was very useful and gain knowledge on Realtime projects
