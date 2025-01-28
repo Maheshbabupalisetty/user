@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>User Management</h1>
+
+        <!-- User List -->
+        <div id="user-list">
+            <h2>Users</h2>
+            <button onclick="showAddForm()">Add User</button>
+            <ul id="user-list-ul"></ul>
+        </div>
+
+        <!-- Add/Edit User Form -->
+        <div id="user-form" style="display: none;">
+            <h2 id="form-title">Add User</h2>
+            <form id="user-form-details" onsubmit="handleFormSubmit(event)">
+                <input type="hidden" id="user-id" />
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" required /><br />
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" required /><br />
+                <label for="email">Email:</label>
+                <input type="email" id="email" required /><br />
+                <label for="department">Department:</label>
+                <input type="text" id="department" required /><br />
+                <button type="submit">Submit</button>
+                <button type="button" onclick="cancelForm()">Cancel</button>
+            </form>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" style="display: none; color: red;"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
